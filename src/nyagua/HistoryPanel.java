@@ -1,0 +1,502 @@
+/*
+ * Nyagua - Aquarium Manager
+ *    Copyright (C) 2012 Rudi Giacomini Pilon
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ */
+
+/*
+ * HistoryPanel.java
+ *
+ * Created on 15-giu-2012, 13.54.52
+ */
+package nyagua;
+
+import dispatching.Watched;
+import dispatching.Watcher;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import nyagua.data.History;
+import nyagua.data.Setting;
+
+/**
+ *
+ * @author rudigiacomini
+ */
+public class HistoryPanel extends javax.swing.JPanel {
+    
+    //Connect listener to application bus
+    ActionListener al = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getID()==Watched.AQUARIUM_CLICKED){
+                 if (Global.AqID != 0) {
+                     populateTable();
+                 }
+                 else {
+                     emptyTable();
+                 }
+            } else if(e.getID()==Watched.ADDED_MAINTENANCE_EVENT){
+                populateTable();
+            } else if(e.getID()==Watched.REQUEST_CLEAN_ALL_FIELDS){
+                CleanAllFields();
+            } else if(e.getID()==Watched.REQUEST_POPULATE_LIST){
+                PopulateList();
+            } else if(e.getID()==Watched.CHANGED_UNITS_SETTINGS){
+                refreshUnits();
+            }   
+        }
+    };            
+    Watcher settingWatch=new Watcher(al);
+    
+    
+    /** Creates new form HistoryPanel */
+    public HistoryPanel() {
+        initComponents();
+        initCutAndPaste(); 
+        Watched nyMessages=Watched.getInstance();
+        nyMessages.addObserver(settingWatch);
+    }
+
+    /**
+     * Cleans all fields
+     */
+    private void CleanAllFields () {
+        JTextField[] jtfList3 = {idTextField,  timeTextField};
+        Util.CleanTextFields(jtfList3);
+        JTextArea[] jtaList = {eventTextArea};
+        Util.CleanTextFields(jtaList);
+        dateTextField.setDate(null);
+    }
+    
+    /**
+     * populate the table
+     */
+    static private void populateTable(){
+        History.populateTable(historyTable);
+    }
+    
+    /**
+     * Empties a jTable assigning null model
+     * 
+     */
+    private static void emptyTable (){
+        DefaultTableModel dm = new DefaultTableModel();
+        String tableData[][] = {{null}};
+        String[] nameHeader = {java.util.ResourceBundle.getBundle("nyagua/Bundle").getString("NO_SELECTION")};
+        dm.setDataVector(tableData, nameHeader);
+        historyTable.setModel(dm);
+    }
+    
+    /**
+     * Load tables widths
+     */
+    static void loadTablesSettings(){
+        Setting s=Setting.getInstance();
+        int [] widths=s.getTableWidths("histtable", History.CAPTIONS.length);//NOI18N
+        History.setColWidth(widths);
+        Util.setColSizes(historyTable,widths );
+    }
+    
+    /**
+     * Save tables widths
+     */
+    static void saveTableSettings(){
+        Setting s=Setting.getInstance();
+        s.setTableWidths("histtable", historyTable);//NOI18N
+    }
+    
+    /*
+     * Applies given format to date text fiel
+     * 
+     */
+    private void refreshUnits(){
+        dateTextField.setDateFormatString(Global.dateFormat);
+    }
+    
+       
+    /**
+     * Populate selected list with a field from a table
+     *
+     */
+    private void PopulateList() {          
+        DefaultComboBoxModel dcm =new DefaultComboBoxModel();
+    }
+    
+    /**
+     * refresh all fields when table selection change
+     */
+    private void refreshFields(){  
+        int recId = TablesUtil.getIdFromTable(
+                historyTable, historyTable.getSelectedRow());
+        
+        History event=History.getById(recId);
+        idTextField.setText(Integer.toString(event.getId()));// NOI18N
+        dateTextField.setDate(event.getDate());// NOI18N
+        timeTextField.setText(event.getTime());// NOI18N
+        eventTextArea.setText(event.getEvent());// NOI18N
+    }
+    
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        timeLabel = new javax.swing.JLabel();
+        idTextField = new javax.swing.JTextField();
+        dateLabel = new javax.swing.JLabel();
+        timeTextField = new javax.swing.JTextField();
+        eventLabel = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        historyTable = new javax.swing.JTable();
+        idLabel = new javax.swing.JLabel();
+        jToolBar4 = new javax.swing.JToolBar();
+        clearButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        deleteButton = new javax.swing.JButton();
+        jSeparator16 = new javax.swing.JToolBar.Separator();
+        searchButton = new javax.swing.JButton();
+        searchState = new javax.swing.JButton();
+        noSearchButton = new javax.swing.JButton();
+        dateTextField = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        eventTextArea = new javax.swing.JTextArea();
+
+        setAlignmentX(0.0F);
+        setAlignmentY(0.0F);
+        setLayout(new java.awt.GridBagLayout());
+
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("nyagua/Bundle"); // NOI18N
+        timeLabel.setText(bundle.getString("TIME_")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(timeLabel, gridBagConstraints);
+
+        idTextField.setEditable(false);
+        idTextField.setMinimumSize(new java.awt.Dimension(30, 19));
+        idTextField.setPreferredSize(new java.awt.Dimension(80, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(idTextField, gridBagConstraints);
+
+        dateLabel.setText(bundle.getString("Date_")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(dateLabel, gridBagConstraints);
+
+        timeTextField.setMinimumSize(new java.awt.Dimension(30, 19));
+        timeTextField.setPreferredSize(new java.awt.Dimension(80, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(timeTextField, gridBagConstraints);
+
+        eventLabel.setText(bundle.getString("Ny.maintEventLabel.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(eventLabel, gridBagConstraints);
+
+        historyTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null}
+            },
+            new String [] {
+                "-- No selection --"
+            }
+        ));
+        historyTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        historyTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                historyTableMouseClicked(evt);
+            }
+        });
+        historyTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                historyTableKeyReleased(evt);
+            }
+        });
+        jScrollPane4.setViewportView(historyTable);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 613;
+        gridBagConstraints.ipady = 277;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
+        add(jScrollPane4, gridBagConstraints);
+
+        idLabel.setText(bundle.getString("ID_")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(idLabel, gridBagConstraints);
+
+        jToolBar4.setFloatable(false);
+        jToolBar4.setRollover(true);
+
+        clearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/btn_clear.png"))); // NOI18N
+        clearButton.setToolTipText(bundle.getString("Clear_Fields")); // NOI18N
+        clearButton.setFocusable(false);
+        clearButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clearButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        clearButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearButtonMouseClicked(evt);
+            }
+        });
+        jToolBar4.add(clearButton);
+
+        saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/btn_accept.png"))); // NOI18N
+        saveButton.setToolTipText(bundle.getString("Confirm_record")); // NOI18N
+        saveButton.setFocusable(false);
+        saveButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        saveButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
+            }
+        });
+        jToolBar4.add(saveButton);
+        jToolBar4.add(jSeparator1);
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/btn_delete.png"))); // NOI18N
+        deleteButton.setToolTipText(bundle.getString("Delete_record")); // NOI18N
+        deleteButton.setFocusable(false);
+        deleteButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        deleteButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
+        jToolBar4.add(deleteButton);
+        jToolBar4.add(jSeparator16);
+
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/btn_statistic.png"))); // NOI18N
+        searchButton.setToolTipText(bundle.getString("Ny.expensesSearchButton.toolTipText")); // NOI18N
+        searchButton.setFocusable(false);
+        searchButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        searchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        jToolBar4.add(searchButton);
+
+        searchState.setFocusable(false);
+        searchState.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        searchState.setMaximumSize(new java.awt.Dimension(14, 44));
+        searchState.setMinimumSize(new java.awt.Dimension(14, 44));
+        searchState.setPreferredSize(new java.awt.Dimension(14, 44));
+        searchState.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar4.add(searchState);
+
+        noSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/btn_no_search.png"))); // NOI18N
+        noSearchButton.setToolTipText(bundle.getString("Ny.expensesNoSearchButton.toolTipText")); // NOI18N
+        noSearchButton.setFocusable(false);
+        noSearchButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        noSearchButton.setMaximumSize(new java.awt.Dimension(44, 44));
+        noSearchButton.setMinimumSize(new java.awt.Dimension(44, 44));
+        noSearchButton.setPreferredSize(new java.awt.Dimension(44, 44));
+        noSearchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        noSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noSearchButtonActionPerformed(evt);
+            }
+        });
+        jToolBar4.add(noSearchButton);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 513;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(jToolBar4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(dateTextField, gridBagConstraints);
+
+        eventTextArea.setColumns(20);
+        eventTextArea.setRows(5);
+        jScrollPane1.setViewportView(eventTextArea);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipady = 150;
+        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 15);
+        add(jScrollPane1, gridBagConstraints);
+    }// </editor-fold>//GEN-END:initComponents
+
+private void historyTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historyTableMouseClicked
+    /**Populate TextFields on tab3 */
+    refreshFields();
+}//GEN-LAST:event_historyTableMouseClicked
+
+private void clearButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearButtonMouseClicked
+    /** Cleans all textFields on tab(History)*/
+    CleanAllFields();
+}//GEN-LAST:event_clearButtonMouseClicked
+
+private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+    /**Insert record on db for table maintenance or update it if existing*/
+    if (Global.AqID == 0) {
+        AppUtil.msgSelectAquarium();
+        return;
+    }
+    String currID = idTextField.getText();
+    History event=new History();
+    if (currID == null || currID.equals("")) {
+        event.setId(0);
+    } else {
+        event.setId(Integer.valueOf(currID));
+    }
+    if (LocUtil.isValidDate(dateTextField.getDate())){
+        if (dateTextField.getDate() == null){
+            event.setDate(LocUtil.delocalizeDate(LocUtil.getCurrentlocalizedDate()));
+        }else {
+            event.setDate(LocUtil.delocalizeDate(dateTextField.getDate()));
+        }
+        
+    } else {
+        Util.showErrorMsg(java.util.ResourceBundle.getBundle("nyagua/Bundle").getString("INVALID_DATE."));
+        dateTextField.requestFocus();     
+        return;
+    }
+    event.setTime(timeTextField.getText());
+    event.setEvent(eventTextArea.getText());  
+    event.save(event,Global.AqID);        
+    
+    History.populateTable(historyTable);
+    CleanAllFields();
+}//GEN-LAST:event_saveButtonMouseClicked
+
+private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+    History.deleteById(idTextField.getText());
+    History.populateTable(historyTable);
+    PopulateList();
+    CleanAllFields();
+}//GEN-LAST:event_deleteButtonMouseClicked
+
+private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+// Search 
+    JTextField [] jTF = { timeTextField};
+    String [] dbFields = {"Time"}; // NOI18N  
+    JTextArea [] jTFA = {eventTextArea };
+    String [] dbFieldsA = {"Event"}; // NOI18N    
+    String filter= DB.createFilter(jTF, dbFields);     
+    filter=filter+DB.createFilter(jTFA, dbFieldsA);
+    History.setFilter(filter);
+    History.populateTable(historyTable);    
+    if (History.getFilter().isEmpty()){
+        searchState.setBackground(Global.BUTTON_GREY);
+        searchState.setToolTipText("");
+    } else {
+        searchState.setBackground(Global.BUTTON_RED);
+        searchState.setToolTipText(java.util.ResourceBundle.getBundle("nyagua/Bundle").getString("filter_on")
+                +": " + filter);
+    }
+}//GEN-LAST:event_searchButtonActionPerformed
+
+private void noSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noSearchButtonActionPerformed
+    // Reset  search
+    History.setFilter("");//NOI18N
+    History.populateTable(historyTable);    
+    searchState.setBackground(Global.BUTTON_GREY);
+    searchState.setToolTipText("");
+}//GEN-LAST:event_noSearchButtonActionPerformed
+
+    private void historyTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_historyTableKeyReleased
+        /**Populate TextFields on tab3 (maintenance) */
+        refreshFields();
+    }//GEN-LAST:event_historyTableKeyReleased
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearButton;
+    private javax.swing.JLabel dateLabel;
+    private com.toedter.calendar.JDateChooser dateTextField;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel eventLabel;
+    private javax.swing.JTextArea eventTextArea;
+    private static javax.swing.JTable historyTable;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JTextField idTextField;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator16;
+    private javax.swing.JToolBar jToolBar4;
+    private javax.swing.JButton noSearchButton;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchState;
+    private javax.swing.JLabel timeLabel;
+    private javax.swing.JTextField timeTextField;
+    // End of variables declaration//GEN-END:variables
+
+    /**
+     * bind cutandpaste popup menu to text fields
+     */
+    private void initCutAndPaste(){
+        timeTextField.addMouseListener(new ContextMenuMouseListener());
+        eventTextArea.addMouseListener(new ContextMenuMouseListener());
+    }
+}

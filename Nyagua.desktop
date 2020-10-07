@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[it]=
+Comment=
+Exec=java -jar ~/Nyagua/Nyagua.jar
+GenericName[it]=
+GenericName=
+Icon=~/Nyagua/fish_ico.png
+MimeType=
+Name[it]=Nyagua
+Name=Nyagua
+NoDisplay=false
+Path=~/Nyagua/
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
