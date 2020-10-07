@@ -743,7 +743,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibDiagnosisTextField.setWrapStyleWord(true);
         ibDiagnosisTextField.setAlignmentX(0.0F);
         ibDiagnosisTextField.setAlignmentY(0.0F);
-        ibDiagnosisTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibDiagnosisTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibDiagnosisTextField.setName(""); // NOI18N
         ibdiagScrollPane.setViewportView(ibDiagnosisTextField);
         ibDiagnosisTextField.getAccessibleContext().setAccessibleName("");
@@ -773,7 +773,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibDangerousTextField.setWrapStyleWord(true);
         ibDangerousTextField.setAlignmentX(0.0F);
         ibDangerousTextField.setAlignmentY(0.0F);
-        ibDangerousTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibDangerousTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibDangerousTextField.setName(""); // NOI18N
         ibdangScrollPane.setViewportView(ibDangerousTextField);
 
@@ -802,7 +802,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibEnviromentTextField.setWrapStyleWord(true);
         ibEnviromentTextField.setAlignmentX(0.0F);
         ibEnviromentTextField.setAlignmentY(0.0F);
-        ibEnviromentTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibEnviromentTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibEnviromentTextField.setName(""); // NOI18N
         ibenvScrollPane.setViewportView(ibEnviromentTextField);
 
@@ -831,7 +831,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibClimateTextField.setWrapStyleWord(true);
         ibClimateTextField.setAlignmentX(0.0F);
         ibClimateTextField.setAlignmentY(0.0F);
-        ibClimateTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibClimateTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibClimateTextField.setName(""); // NOI18N
         ibclimScrollPane.setViewportView(ibClimateTextField);
 
@@ -860,7 +860,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibBiologyTextField.setWrapStyleWord(true);
         ibBiologyTextField.setAlignmentX(0.0F);
         ibBiologyTextField.setAlignmentY(0.0F);
-        ibBiologyTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibBiologyTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibBiologyTextField.setName(""); // NOI18N
         ibbioScrollPane.setViewportView(ibBiologyTextField);
 
@@ -889,7 +889,7 @@ public class IBPanel extends javax.swing.JPanel {
         ibDistributionTextField.setWrapStyleWord(true);
         ibDistributionTextField.setAlignmentX(0.0F);
         ibDistributionTextField.setAlignmentY(0.0F);
-        ibDistributionTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ibDistributionTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ibDistributionTextField.setName(""); // NOI18N
         ibdistrScrollPane.setViewportView(ibDistributionTextField);
 

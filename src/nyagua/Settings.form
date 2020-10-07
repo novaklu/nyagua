@@ -1152,7 +1152,7 @@
                           <Component id="expensesPresetsCheckBox" min="-2" max="-2" attributes="0"/>
                           <Component id="maintenancePresetsCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="234" max="32767" attributes="0"/>
+                      <EmptySpace pref="291" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

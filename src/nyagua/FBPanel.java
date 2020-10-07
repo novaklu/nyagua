@@ -691,7 +691,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbDiagnosisTextField.setWrapStyleWord(true);
         fbDiagnosisTextField.setAlignmentX(0.0F);
         fbDiagnosisTextField.setAlignmentY(0.0F);
-        fbDiagnosisTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbDiagnosisTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbDiagnosisTextField.setName(""); // NOI18N
         fbdiagScrollPane.setViewportView(fbDiagnosisTextField);
         fbDiagnosisTextField.getAccessibleContext().setAccessibleName("");
@@ -721,7 +721,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbDangerousTextField.setWrapStyleWord(true);
         fbDangerousTextField.setAlignmentX(0.0F);
         fbDangerousTextField.setAlignmentY(0.0F);
-        fbDangerousTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbDangerousTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbDangerousTextField.setName(""); // NOI18N
         fbdangScrollPane.setViewportView(fbDangerousTextField);
 
@@ -750,7 +750,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbEnviromentTextField.setWrapStyleWord(true);
         fbEnviromentTextField.setAlignmentX(0.0F);
         fbEnviromentTextField.setAlignmentY(0.0F);
-        fbEnviromentTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbEnviromentTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbEnviromentTextField.setName(""); // NOI18N
         fbenvScrollPane.setViewportView(fbEnviromentTextField);
 
@@ -779,7 +779,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbClimateTextField.setWrapStyleWord(true);
         fbClimateTextField.setAlignmentX(0.0F);
         fbClimateTextField.setAlignmentY(0.0F);
-        fbClimateTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbClimateTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbClimateTextField.setName(""); // NOI18N
         fbclimScrollPane.setViewportView(fbClimateTextField);
 
@@ -808,7 +808,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbBiologyTextField.setWrapStyleWord(true);
         fbBiologyTextField.setAlignmentX(0.0F);
         fbBiologyTextField.setAlignmentY(0.0F);
-        fbBiologyTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbBiologyTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbBiologyTextField.setName(""); // NOI18N
         fbbioScrollPane.setViewportView(fbBiologyTextField);
 
@@ -837,7 +837,7 @@ public class FBPanel extends javax.swing.JPanel {
         fbDistributionTextField.setWrapStyleWord(true);
         fbDistributionTextField.setAlignmentX(0.0F);
         fbDistributionTextField.setAlignmentY(0.0F);
-        fbDistributionTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        fbDistributionTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         fbDistributionTextField.setName(""); // NOI18N
         fbdistrScrollPane.setViewportView(fbDistributionTextField);
 

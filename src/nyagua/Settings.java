@@ -852,7 +852,7 @@ public class Settings extends javax.swing.JDialog {
                 .addGroup(presetsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(expensesPresetsCheckBox)
                     .addComponent(maintenancePresetsCheckBox))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         presetsPanelLayout.setVerticalGroup(
             presetsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
