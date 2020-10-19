@@ -338,9 +338,6 @@ public class PBPanel extends javax.swing.JPanel {
         pbNoSearchButton.setToolTipText(bundle.getString("Ny.expensesNoSearchButton.toolTipText")); // NOI18N
         pbNoSearchButton.setFocusable(false);
         pbNoSearchButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pbNoSearchButton.setMaximumSize(new java.awt.Dimension(44, 44));
-        pbNoSearchButton.setMinimumSize(new java.awt.Dimension(44, 44));
-        pbNoSearchButton.setPreferredSize(new java.awt.Dimension(44, 44));
         pbNoSearchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         pbNoSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -527,9 +524,6 @@ public class PBPanel extends javax.swing.JPanel {
 
         pbImageDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/archive-remove.png"))); // NOI18N
         pbImageDeleteButton.setToolTipText(bundle.getString("Clear_image")); // NOI18N
-        pbImageDeleteButton.setMaximumSize(new java.awt.Dimension(44, 44));
-        pbImageDeleteButton.setMinimumSize(new java.awt.Dimension(44, 44));
-        pbImageDeleteButton.setPreferredSize(new java.awt.Dimension(44, 44));
         pbImageDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pbImageDeleteButtonActionPerformed(evt);
@@ -636,9 +630,6 @@ public class PBPanel extends javax.swing.JPanel {
 
         pbImageLoadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/insert-image.png"))); // NOI18N
         pbImageLoadButton.setToolTipText(bundle.getString("Load_an_image")); // NOI18N
-        pbImageLoadButton.setMaximumSize(new java.awt.Dimension(44, 44));
-        pbImageLoadButton.setMinimumSize(new java.awt.Dimension(44, 44));
-        pbImageLoadButton.setPreferredSize(new java.awt.Dimension(44, 44));
         pbImageLoadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pbImageLoadButtonActionPerformed(evt);
@@ -828,23 +819,23 @@ public class PBPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(pbIdLabel)
                 .addGap(10, 10, 10)
                 .addComponent(pbIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(79, 79, 79)
                 .addComponent(pbNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pbNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-            .addComponent(jToolBar10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pbNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jToolBar10, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pbIdLabel)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -852,7 +843,7 @@ public class PBPanel extends javax.swing.JPanel {
                         .addComponent(pbNameLabel)
                         .addComponent(pbNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

@@ -24,17 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="pbIdLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="pbIdTextField" min="-2" pref="55" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               <Component id="pbNameLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="pbNameTextField" min="-2" pref="405" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="pbNameTextField" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jToolBar10" alignment="0" max="32767" attributes="0"/>
+          <Component id="jToolBar10" alignment="0" pref="796" max="32767" attributes="0"/>
           <Component id="jTabbedPane1" alignment="0" pref="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -42,7 +42,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jToolBar10" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="pbIdLabel" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -52,7 +52,7 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="520" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" pref="526" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -170,15 +170,6 @@
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[44, 44]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[44, 44]"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[44, 44]"/>
-            </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
@@ -465,15 +456,6 @@
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="nyagua/Bundle.properties" key="Clear_image" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                 </Property>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pbImageDeleteButtonActionPerformed"/>
@@ -614,15 +596,6 @@
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="nyagua/Bundle.properties" key="Load_an_image" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                </Property>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[44, 44]"/>
                 </Property>
               </Properties>
               <Events>
